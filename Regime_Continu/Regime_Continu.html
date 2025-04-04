@@ -1,0 +1,741 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Réseaux électriques et régime continu</title>
+    <link rel="stylesheet" type="text/css" media="print,screen" 
+      href="https://sciencesingenieur.github.io/Styles/styles.css"/>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+  </head>
+  <body>
+
+    <section>
+
+      <h1>Réseaux électriques et régime continu</h1>
+
+      <h2>Lois de l’électrocinétique</h2>
+
+      <div>
+        Les lois de l’électrocinétique ou lois de Kirchhoff se résument en deux lois&#x202f;: la loi
+        des nœuds et la loi des mailles.
+      </div>
+
+      <h3>Introduction</h3>
+      
+      <h4>Réseau électrique</h4>
+      
+      <div>
+        Un réseau électrique (ou circuit électrique) est un ensemble d’éléments présentant des
+        propriétés électriques, reliés entre eux par des conducteurs que l’on considérera parfaits
+        (conductivité infini). Les lois de l’électricité permettent de trouver la façon dont les
+        courants et les potentiels électriques se répartissent au sein de ce circuit.
+      </div>
+      
+      <div>
+        Lorsque les grandeurs électriques (tensions et intensités électriques) ne varient pas dans
+        le temps, on parle de régime continu&#x202f;; le régime variable désigne la situation
+        contraire.
+      </div>
+      
+      <h4>Approximation des régimes quasi stationnaires (ARQS)</h4>
+      
+      <div>
+        En régime variable, les fluctuations de courant se propagent à une vitesse proche de la
+        vitesse de la lumière. Pour des circuits de taille raisonnable, la durée de propagation
+        \(\tau\) est très petite devant le temps caractéristique \(T\) des fluctuations (période du
+        signal s’il est périodique). Il est alors légitime de négliger \(\tau\) devant
+        \(T\)&#x202f;; c’est ce qu’on appelle l’approximation des régimes quasi-stationnaires.
+      </div>
+
+      <div>
+        Nous admettrons que les lois des régimes permanents restent valables en régime variable si
+        l’on peut considérer les phénomènes de propagation négligeables. Notamment, dans une branche
+        d’un circuit, à un instant donné, le courant a la même intensité en tout point.
+      </div>
+      
+      <h4>Dipôle et conventions</h4>
+      
+      <div>
+        Un dipôle électrocinétique est une partie d’un circuit qui peut être reliée au reste du
+        circuit par deux fils. On décrit le comportement d’un dipôle par sa relation courant-tension
+        \((i=f(u))\) dans une convention précisée. Il en existe deux&#x202f;:
+        <ul>
+          <li>dans la convention récepteur, si le courant algébrique est orienté dans le sens AB,
+          alors \(u=V_A-V_B\)</li>
+          <li>dans la convention générateur, si le courant algébrique est orienté dans le sens AB,
+          alors \(u=V_B-V_A\)</li>
+        </ul>
+      </div>
+      
+      <figure>
+        <img src="Conventions.png">
+        <figcaption>Les différentes conventions.</figcaption>
+      </figure>
+      
+      <div>
+        Dans ce chapitre nous limitons notre propos à l’étude de dipôles électrocinétiques dont la
+        relation entre \(u\) et \(i\) est, soit linéaire, soit affine (\(i=a\times u+b\)).
+      </div>
+      
+      <h3>Loi des nœuds</h3>
+      
+      <h4>Énoncé</h4>
+      
+      <div>
+        Dans chaque branche d’un réseau électrique, on définit un sens positif (le choix est
+        arbitraire) du courant et une intensité algébrique \(i\). Si \(i \gt 0\), le courant circule
+        dans le sens positif&#x202f;; si \(i \lt 0\), le courant circule dans le sens négatif.
+      </div>
+      
+      <div>
+        Un nœud est la rencontre d’au moins trois conducteurs électriques.<br />
+        Considérons \(n\) branches de conducteurs liées par un nœud \(N\).<br />
+        Définissons \(i_k\), l’intensité algébrique du courant de la \(k^e\) branche.<br />
+        La loi des nœuds traduit la conservation de la charge en régime stationnaire et exprime le
+        fait que la charge ne peut pas s’accumuler en \(N\)&#x202f;: le courant électrique qui
+        arrive en \(N\) doit être compensé par le courant qui sort.<br />
+        Cette loi, rigoureusement vérifiée en régime continu, est admise en régime variable dans le
+        cadre de l’approximation des régimes quasistationnaires.
+      </div>
+      
+      <div>
+        En chaque nœud d’un circuit, on a&#x202f;:
+        $$
+          \quad \sum_{k=1}^{n} \epsilon_k i_k = 0
+        $$
+        où \(\epsilon_k = +1\) quand le courant est entrant et où \(\epsilon_k = -1\) quand le
+        courant est sortant.
+      </div>
+      
+      <h4>Exemple</h4>
+      
+      <figure>
+        <img src="Exemple_loi_noeuds.png">
+        <figcaption>Illustration de la loi des nœuds.</figcaption>
+      </figure>
+      
+      <div>
+        Considérons le schéma ci-dessus. La loi des nœuds exprimée en \(N\) donne&#x202f;:
+        $$
+          i_1 + i_2 + i_3 - i_4 = 0
+        $$
+        soit&#x202f;:
+        $$
+          i_4 = i_1 + i_2 + i_3 
+        $$
+        Ce qui traduit bien le fait que le courant qui arrive en \(N\) est égale au courant qui en
+        sort.
+      </div>
+      
+      <h3>Loi des mailles</h3>
+      
+      <h4>Énoncé</h4>
+      
+      <div>
+        Le transport électrique est assuré grâce aux forces électrostatiques.<br />
+        On peut dès lors définir un potentiel électrique en chaque point du circuit. Lorsque le
+        potentiel électrique est le même partout, le réseau est à l’équilibre et n’est le siège
+        d’aucun courant électrique. En revanche, lorsque le potentiel électrique n’est plus
+        uniforme, le conducteur n’est plus à l’équilibre ce qui génère un courant électrique (qui
+        tente de rétablir l’équilibre). Aux extrémités d’une branche il existe alors une tension qui
+        dépend du courant électrique et de la nature du dipôle traversé par ce courant.<br />
+        Il est traditionnel de représenter une tension \(u_{AB} = V_A - V_B\) par une flèche allant
+        de \(B\) vers \(A\).
+      </div>
+      
+      <figure>
+        <img src="Representation_tension.png">
+        <figcaption>Représentation d’une tension.</figcaption>
+      </figure>
+      
+      <div>
+        Une maille est un circuit fermé qui part d’un nœud donné pour revenir à ce même nœud.<br />
+        Prenons une maille et choisissons arbitrairement un sens de parcours.<br />
+        Visitons toutes les branches de la maille et associons un coefficient \(\epsilon_k = +1\) à
+        la tension rencontrée lorsqu’elle est orientée (sa flèche représentative) dans le sens de
+        parcours et un coefficient \(\epsilon_k =-1\) lorsque la tension rencontrée est orientée
+        dans l’autre sens. La loi des mailles se traduit alors par&#x202f;:
+        $$
+          \quad \sum_{k=1}^{n}{\epsilon_k u_k} = 0
+        $$
+      </div>
+      
+      <h4>Exemple</h4>
+      
+      <figure>
+        <img src="Exemple_loi_mailles.png">
+        <figcaption>Illustration de la loi des mailles.</figcaption>
+      </figure>
+      
+      <div>
+        Dans le circuit ci-dessus, appliquons la loi des mailles en parcourant la maille dans le
+        sens indiqué. On trouve&#x202f;:
+        $$
+          1 \times u_{BC} + 1 \times u_{AB} - 1 \times u_{AC} = 0
+        $$
+        soit
+        $$
+          u_{AC} = u_{AB} + u_{BC}
+        $$
+        On retrouve d’ailleurs une loi identique à celle de Chasles propre aux vecteurs.
+      </div>
+      
+      <h4>Potentiel d’origine</h4>
+      
+      <div>
+        Il existe une indétermination du potentiel&#x202f;; ceci reste vrai au sein d’un réseau
+        électrique. Cependant, une convention souvent rencontrée consiste à poser l’origine du
+        potentiel au niveau du pôle négatif de l’alimentation. Ce potentiel de référence est appelée
+        masse du circuit.
+      </div>
+      
+      <div>
+        Un équipement sous tension présente, en général, une connexion physique avec la terre. Elle
+        permet de protéger l’utilisateur et également d’évacuer les courants induits par la foudre.
+        Cependant, il ne faut pas confondre ligne de terre et ligne de masse, car le potentiel de la
+        terre n’est pas nécessairement constant et sa fonction est uniquement liée à la sécurité.
+      </div>
+      
+      <figure>
+        <img src="Pictogramme_masse_terre.png">
+        <figcaption>Pictogramme des lignes de masse et de terre.</figcaption>
+      </figure>
+      
+      <h3>Puissance reçue par un dipôle</h3>
+      
+      <div>
+        On note \(\mathcal{P}(t)\) la puissance électrique reçue à l’instant \(t\) par un dipôle
+        électrocinétique. La puissance électrique se mesure en watt (symbole&#x202f;: W) et on
+        rappelle que \(1 W = 1 J.s^-1\).
+      </div>
+      
+      <div>
+        Entre \(t\) et \(t + dt\), la quantité de charge \(dq = i(t)dt\) arrive en une extrémité du
+        dipôle (point \(A\)) pendant que la même quantité <span class="incise">nous sommes en régime
+        stationnaire ou quasi-stationnaire</span> en sort par l’autre extrémité (point \(B\)).<br />
+        Cette quantité de charge possède une énergie électrique \(\mathcal{E}(A) = dqV_A\) en \(A\)
+        et \(\mathcal{E}(B) = dqV_B\).<br />
+        Remarquons qu’entre \(A\) et \(B\) l’énergie des charges n’a pas changé du fait que la
+        distribution des charges et du potentiel est la même entre \(t\) et \(t + dt\).<br />
+        Autrement dit, d’un point de vue énergétique, tout se passe comme si l’on avait transporté
+        la charge \(dq\) de \(A\) en \(B\). Pendant ce transport la charge perd une énergie
+        potentielle \(dqV_A - dqV_B\) qu’elle cède intégralement au dipôle. Celui-ci reçoit donc une
+        quantité d’énergie&#x202f;:
+        $$
+          \quad \delta{W} = dqV_A - dqV_B = i(t)u_{AB}(t)dt
+        $$
+      </div>
+      
+      <div>
+        La puissance électrocinétique reçue (l’énergie reçue par unité de temps) par un dipôle à
+         l’instant \(t\), soumis à une tension \(u(t)\) et traversé par un courant d’intensité
+         \(i(t)\) vaut, en convention récepteur&#x202f;:
+        $$
+          \quad \mathcal{P}(t) = u(t)i(t)
+        $$
+      </div>
+      
+      <div>
+        Si \(\mathcal{P}(t) \gt 0 \), le dipôle absorbe effectivement, à l’instant \(t\), de
+        l’énergie électrique. On dit que le dipôle a un caractère récepteur. Cette énergie reçue par
+        le dipôle est soit stockée, soit convertie sous une autre forme (effet Joule dans une
+        résistance, énergie mécanique dans un moteur).
+      </div>
+      
+      <div>
+        Si \(\mathcal{P}(t) \lt 0 \), le dipôle fournit effectivement de l’énergie électrique. On
+        dit que le dipôle a un caractère générateur (batterie).
+      </div>
+      
+      <h2>Phénomènes résistifs</h2>
+      
+      <h3>Loi d’ohm, effet Joule</h3>
+      
+      <div>
+        Un conducteur ohmique obéit à la loi d’Ohm&#x202f;:
+        $$
+          \quad u(t) = R \times i(t)
+        $$
+        où \(R\) désigne la résistance du conducteur ohmique dont la valeur dépend de la géométrie
+        et de la conductivité du matériau conducteur.
+      </div>
+      
+      <div>
+        La résistance s’exprime en ohm (symbole \(\Omega\)). La caractéristique d’un conducteur
+        ohmique est donc une droite passant par l’origine.
+      </div>
+      
+      <figure>
+        <img src="Conducteur_ohmique.png">
+        <figcaption>Schéma et caractéristique d’un conducteur ohmique.</figcaption>
+      </figure>
+      
+      <div>
+        Un circuit uniquement composé de résistances ne peut pas produire de courant. On dit que le
+        conducteur ohmique est un dipôle linéaire passif. 
+      </div>
+      
+      <div>
+        La puissance reçue par un conducteur ohmique vaut&#x202f;:
+        $$
+          \quad \mathcal{P} = u \times i = R \times i^2
+        $$
+      </div>
+      
+      <div>
+        Le conducteur ne peut que recevoir de l’énergie électrique, sans pouvoir en fournir. On
+        parle alors de récepteur électrique. En revanche cette énergie électrique est convertie
+        essentiellement sous forme de chaleur si le conducteur n’est pas thermiquement isolé.
+      </div>
+      
+      <div>
+        Cette dissipation de l’énergie électrique sous forme de chaleur porte le nom d’effet Joule.
+        Cet effet est mis à profit dans les bouilloires électriques par exemple.<br />
+        Notez qu’en général le conducteur voit sa température varier, ce qui fait augmenter son
+        enthalpie. Dans ce cas, une partie de l’énergie électrique sert à augmenter l’énergie
+        interne du conducteur et à le dilater.
+      </div>
+        
+      <h3>Association de résistances</h3>
+      
+      <div>
+        Tout dipôle constitué uniquement de résistances équivaut à une résistance équivalente 
+        \(R_{eq}\).
+      </div>
+      
+      <h4>Résistances en série</h4>
+      
+      <div>
+        On dit que des résistances sont en série lorsqu’elles sont traversées par le même courant
+        électrique.<br />
+        Considérons \(N\) résistances montées en séries.<br />
+        Notons \(i\) l’intensité du courant.<br />
+        Notons \(u_k\) la tension aux bornes du \(k^e\) conducteur ohmique de resistance \(R_k\).
+      </div>
+      
+      <figure>
+        <img src="Resistances_serie.png">
+        <figcaption>Conducteurs ohmiques en série.</figcaption>
+      </figure>
+      
+      <div>
+        On a&#x202f;:
+        $$
+          u = R_{eq} \times i = \sum_{k=1}^{N}{u_k} = i \times \sum_{k=1}^{N}{R_k}
+        $$
+        Par conséquent, on obtient&#x202f;:
+        $$
+          \quad R_{eq} = \sum_{k=1}^{N}{R_k}
+        $$
+      </div>
+      
+      <h4>Résistances en parallèle</h4>
+      
+      <div>
+        On dit que des résistances sont associées en parallèle lorsqu’elles sont soumises à la même
+        tension.<br />
+        Considérons \(N\) résistances montées en parallèle.<br />
+        Notons \(u\) la tension commune.<br />
+        Notons \(i_k\) l’intensité du courant traversant le \(k^e\) conducteur ohmique de resistance
+        \(R_k\).
+      </div>
+      
+      <figure>
+        <img src="Resistances_parallele.png">
+        <figcaption>Conducteurs ohmiques en parallèle.</figcaption>
+      </figure>
+      
+      <div>
+        On a&#x202f;:
+        $$
+          i = \frac{u}{R_{eq}} = \sum_{k=1}^{N}{i_k} = u \times \sum_{k=1}^{N}{\frac{1}{R_k}}
+        $$
+        Par conséquent, on obtient&#x202f;:
+        $$
+          \quad \frac{1}{R_{eq}} = \sum_{k=1}^{N}{\frac{1}{R_k}}
+        $$
+      </div>
+      
+      <h4>Ponts diviseurs</h4>
+      
+      <div>
+        Considérons deux résistances \(R_1\) et \(R_2\) en série soumises à une tension \(u\).
+      </div>
+      
+      <figure>
+        <img src="Diviseur_tension.png">
+        <figcaption>Pont diviseur de tension.</figcaption>
+      </figure>
+      
+      <div>
+        En vertu de la loi des mailles, on a \(u = u_1 + u_2 = \left(R_1 + R_2\right)i\). La tension
+        aux bornes de chaque résistance \(u_k = R_k i\) est alors une fraction de la tension \(u\).
+        $$
+          \quad u_k = \frac{R_k}{R_1 + R_2}u
+        $$
+      </div>
+      
+      <div>
+        On parle alors de montage diviseur de tension.
+      </div>
+      
+      <div>
+        Considérons deux résistances \(R_1\) et \(R_2\) en parallèle alimentées par un courant
+        global \(i\).
+      </div>
+      
+      <figure>
+        <img src="Diviseur_courant.png">
+        <figcaption>Pont diviseur de courant.</figcaption>
+      </figure>
+      
+      <div>
+        Définissons les conductances \(G_k = 1/ R_k\) exprimées en siemens (symbole&#x202f;: S). Le
+        courant traversant chacune des résistances a pour intensité \(i_k = G_k u\) et
+        \( u = i/\left(G_1 + G_2\right)\). En conséquence, on obtient&#x202f;:
+        $$
+          \quad i_k = \frac{G_k}{G_1 + G_2}i
+        $$
+      </div>
+      
+      <div>
+        Le courant se répartie au prorata des conductances et l’on parle de montage diviseur de
+        courant.
+      </div>
+      
+      <h2>Modélisation linéaire d’un dipôle actif</h2>
+      
+      <div>
+        Contrairement aux dipôles passifs, les dipôles actifs produisent une tension en circuit
+        ouvert. On distingue les sources (piles, alimentation stabilisée, batteries en utilisation,
+        etc.) et les récepteurs (électrolyseurs, batteries en charge, moteurs électriques).
+      </div>
+      
+      <h3>Source de tension</h3>
+      
+      <h4>Source de tension idéale</h4>
+      
+      <div>
+        Une source de tension permet aux charges de <q>remonter</q> le potentiel grâce à l’existence
+        d’un champ électromoteur au sein de la source.<br />
+        Ce champ électromoteur produit une tension, dite force électromotrice (f.é.m) que nous
+        noterons \(e\).
+      </div>
+      
+      <div>
+        La caractéristique d’une source de tension idéale s’écrit en convention
+        générateur&#x202f;:
+        $$
+          \quad u = e \quad \forall i
+        $$
+      </div>
+      
+      <figure>
+        <img src="Source_tension_ideale.png">
+        <figcaption>Schéma et caractéristique d’une source idéale de tension.</figcaption>
+      </figure>
+      
+      <h4>Source de tension réelle</h4>
+      
+      <div>
+        Pour tenir compte des pertes par effet Joule d’une source de tension, on modélise la source
+        par une source idéale en série avec une résistance \(r\) dite résistance interne. La
+        caractéristique s’écrit alors&#x202f;:
+        $$
+          \quad u = e -ri
+        $$
+      </div>
+      
+      <figure>
+        <img src="Source_tension_reelle.png">
+        <figcaption>Schéma et caractéristique d’une source réelle de tension.</figcaption>
+      </figure>
+      
+      <div>
+        Il ressort de cette caractéristique que la source de tension acquiert un comportement
+        quasi-idéal à la condition que \(ri \ll e\)&#x202f;: le courant débité par la source doit
+        rester faible. C’est ce que l’on obtient lorsque l’on branche un voltmètre aux bornes de la
+        source&#x202f;: la résistance interne du voltmètre étant très grande, le courant débitée est
+        quasi nul de sorte que le voltmètre indique la f.é.m de la source. Par ailleurs, lorsque
+        l’on court-circuite la source en reliant ses deux bornes (\(u=0\)), on trouve un courant de
+        court-circuit (\(i_{cc}=e/r\)).
+      </div>
+      
+      <h4>Puissance d’une source de tension</h4>
+      
+      <div>
+        Du point de vue énergétique, la puissance délivrée par la source de tension
+        vaut&#x202f;:
+        $$
+          \quad \mathcal{P} = ui = ei - ri^2
+        $$
+      </div>
+      
+      <figure>
+        <img src="Puissance_source_tension.png">
+        <figcaption>Puissance produite par une source de tension en fonction du courant
+        débité.</figcaption>
+      </figure>
+      
+      <div>
+        Ainsi, la puissance atteint une valeur maximale lorsque \(i = e/2r\). Une source réelle de
+        tension délivre donc une puissance maximale&#x202f;:
+        $$
+          \quad \mathcal{P}_{max} = \frac{e^2}{4r}
+        $$
+      </div>
+      
+      <h3>Source de courant</h3>
+      
+      <h4>Source de courant idéale</h4>
+      
+      <div>
+        Le rôle d’une source de courant est d’imposer un courant constant indépendamment de la
+        tension qui règne à ses bornes. Une source de courant idéale aura la caractéristique
+        suivante&#x202f;:
+        $$
+          \quad i = i_0 \quad \forall u
+        $$
+        où \(i_0\) désigne le courant électromoteur (c.é.m).
+      </div>
+      
+      <figure>
+        <img src="Source_courant_ideale.png">
+        <figcaption>Schéma et caractéristique d’une source idéale de courant.</figcaption>
+      </figure>
+      
+      <h4>Source de courant réelle</h4>
+      
+      <div>
+        Pour tenir compte des pertes par effet Joule d’une source de courant réelle, on la modélise
+        par une source idéale en parallèle avec une conductance interne \(g\). La caractéristique
+        s’écrit alors&#x202f;:
+        $$
+          \quad i = i_0 - gu
+        $$
+      </div>
+      
+      <figure>
+        <img src="Source_courant_reelle.png">
+        <figcaption>Schéma et caractéristique d’une source idéale de courant.</figcaption>
+      </figure>
+      
+      <div>
+        On notera qu’une source de courant se rapproche d’une source de courant idéale quand sa
+        conductance interne tend vers 0 (\(r \rightarrow \infty\)).
+      </div>
+      
+      <h4>Puissance d’une source de courant</h4>
+      
+      <div>
+        La puissance fournie par une source de courant réelle vaut&#x202f;:
+        $$
+          \quad \mathcal{P} = ui = ui_0 - gu^2
+        $$
+      </div>
+      
+      <figure>
+        <img src="Puissance_source_courant.png">
+        <figcaption>Puissance produite par une source de courant en fonction du tension à ses
+        bornes.</figcaption>
+      </figure>
+      
+      <div>
+        Ainsi, la puissance atteint une valeur maximale lorsque \(u = i_0/2g\). Une source réelle de
+        courant délivre donc une puissance maximale&#x202f;:
+        $$
+          \quad \mathcal{P}_{max} = \frac{{i_0}^2}{4g}
+        $$
+      </div>
+      
+      <h3>Représentations de Thévenin et Norton</h3>
+      
+      <div>
+        Considérons une source de tension réelle dont la modélisation linéaire est donnée par
+        \(u = e -ri\). Cette caractéristique peut se réécrire \(i = e/r - gu\) avec \(g = 1/r\). En
+        d’autres termes, une source de tension réelle peut s’interpréter comme une source de courant
+        de c.é.m \(i_0 = e/r\) et de conductance \(g = 1/r\). Ainsi, toute source linéaire présente
+        deux représentations possibles&#x202f;:
+        <ul>
+          <li>la modélisation de Thévenin correspondant à une source de tension idéale en série avec
+          une résistance</li>
+          <li>la modélisation de Norton correspondant à une source de courant idéale en parallèle
+          avec une conductance</li>
+        </ul>
+      </div>
+      
+      <figure>
+        <img src="Equivalence_Thevenin_Norton.png">
+        <figcaption>Équivalence Thévenin Norton.</figcaption>
+      </figure>
+      
+      <h3>Récepteur actif</h3>
+      
+      <div>
+        Étudions le cas d’une batterie chimique. On distingue deux comportements&#x202f;: la
+        décharge ou la charge. Lorsque la batterie se décharge, elle est alors source d’énergie et
+        est modélisée par une source de tension de f.é.m \(e\) et de résistance interne \(r\). On a
+        en convention générateur&#x202f;:
+        $$
+          u = e - ri
+        $$
+        et
+        $$
+          \mathcal{P} = ei - ri^2 \gt 0
+        $$
+      </div>
+      
+      <div>
+        En fonctionnement générateur, la puissance fournie est positive et le sens du courant est
+        dictée par la polarité de la source.
+      </div>
+      
+      <div>
+        En revanche, lorsque la batterie est en charge, le courant est dans l’autre sens. Dans ce
+        cas, le dipôle reçoit de la puissance&#x202f;:: on dit qu’il s’agit d’un récepteur actif et
+        \(e\) est désigné par le terme force contreélectromotrice (f.c.é.m). En convention
+        récepteur, on écrira donc&#x202f;:
+        $$
+          u = e + ri
+        $$
+        et la puissance fournie à la batterie vaut&#x202f;:
+        $$
+          \mathcal{P} = ei + ri^2
+        $$
+      </div>
+      
+      <figure>
+        <img src="Batterie_en_charge.png">
+        <figcaption>Batterie en charge.</figcaption>
+      </figure>
+      
+      <div>
+        Une partie de cette puissance (\(ri^2\)) est dissipée par effet joule et l’autre partie
+        (\(ei\)) est convertie en énergie chimique. On peut d’ailleurs définir un rendement de
+        conversion&#x202f;:
+        $$
+          \eta = \frac{\mathcal{P}_{convertie}}{\mathcal{P}_{fournie}} = \frac{e}{e+ri}
+        $$
+      </div>
+      
+      <div>
+        Finalement, une batterie est une source de tension qui peut fonctionner, soit en générateur,
+        soit en récepteur, la polarité étant fixé par la borne positive de la batterie. On parle
+        alors de récepteur réversible. Les accumulateurs, les électrolyseurs ont ce comportement.
+      </div>
+      
+      <div>
+        Il existe cependant des dipôles actifs dont le comportement est toujours récepteur quel que
+        soit le sens du courant. La polarité de la f.c.é.m est toujours orientée à contre sens du
+        courant. On parle de récepteur non réversibles (ou non polarisés). Le moteur à courant
+        continu en est un exemple.
+      </div>
+      
+      <figure>
+        <img src="Moteur_CC.png">
+        <figcaption>Moteur à courant continu.</figcaption>
+      </figure>
+      
+      <h3>Loi de Pouillet</h3>
+      
+      <div>
+        Imaginons une maille constituée de dipôles actifs (en représentation de Thévenin) et de
+        résistances. Appelons \(R\) la somme de toutes les résistances (résistances internes
+        inclues).<br />
+        Imposons un sens positif du courant et notons \(i\) l’intensité algébrique du courant qui
+        circule dans la maille.<br />
+        Notons \(e_k\) les f.é.m (orientées dans le sens positif) et \(e'_k\) les f.c.é.m (orientés
+        dans le sens contraire).<br />
+        La loi des mailles permet d’écrire&#x202f;:
+        $$
+          \sum_{k}{e_k} - \sum_{k}{e'_k} - Ri = 0
+        $$
+        Ce qui donne la loi connue sous le nom de loi de Pouillet&#x202f;:
+        $$
+          \quad i = \frac{\sum_{k}{e_k} - \sum_{k}{e'_k}}{R}
+        $$
+      </div>
+      
+      <h2>Méthodes de résolution</h2>
+      
+      <h3>Utilisation de la loi des mailles</h3>
+      
+      <div>
+        Dans un réseau constitué de \(b\) branches et \(n\) nœuds, il y a \(N=b-n+1\) courants
+        indépendants. En effet, les \(b\) courants circulant dans les \(b\) branches vérifient
+        \(n-1\) relations (lois des nœuds). Il nous faut donc \(N\) relations pour déterminer ces
+        inconnues. Ces relations sont obtenues en appliquant la loi des mailles dans \(N\) mailles
+        indépendantes associées aux caractéristiques des dipôles. On obtient alors un système
+        d’équations à résoudre.
+      </div>
+      
+      <div>
+        Méthodologie&#x202f;:<br />
+        <ol>
+          <li>Parcourir toutes les branches du réseau en définissant les courants algébriques et en
+            appliquant le plus possible la loi des nœuds à chaque fois que l’on rencontre un
+            nœud.</li>
+          <li>Compter le nombre \(N\) de courants inconnues puis choisir \(N\) mailles avec un sens
+            de parcours.</li>
+          <li>Écrire \(N\) lois des mailles en utilisant les caractéristiques des dipôles. Notez que
+            si une branche contient une source de courant, l’intensité électrique dans cette branche
+            est alors déterminée, mais la tension aux bornes de la source est alors une
+            inconnue.</li>
+          <li>Résoudre le système d’équations.</li>
+        </ol>
+      </div>
+      
+      <div>
+        Cette méthode présente l’avantage de déterminer toutes les grandeurs électriques et
+        s’applique à tous les réseaux électriques. Si le circuit contient uniquement des dipôles
+        linéaires, le système d’équations obtenu est alors linéaire, ce qui facilite sa résolution.
+      </div>
+      
+      <h3>Équivalence Thévenin-Norton</h3>
+      
+      <div>
+        L’inconvénient majeur de la méthode précédente est qu’elle nécessite de résoudre un système
+        de \(N\) équations, même si l’on ne cherche qu’une seule grandeur électrique&#x202f;; le
+        risque d’erreur de calcul peut devenir important.
+      </div>
+      
+      <div>
+        Pour remédier à ce défaut, on peut utiliser de façon judicieuse l’équivalence électrique
+        entre une source de tension réelle et une source de courant réelle. En associant les
+        résistances quand c’est possible et en répétant plusieurs fois la transformation
+        Thévenin-Norton, on peut simplifier une partie du réseau électrique étudié, et donc diminuer
+        le nombre de mailles. Quand le but est de calculer les grandeurs électriques relatives à une
+        branche particulière, cette méthode est à envisager.
+      </div>
+      
+      <h3>Théorème de superposition</h3>
+      
+      <div>
+        Dans un circuit constitué de dipôles linéaires, l’intensité circulant dans une branche
+        (respestivement la tension d’une branche) est égale à la somme algébrique des intensités
+        (respestivement tensions) produites par chaque source supposée seule active, les autres
+        étant éteintes.
+      </div>
+      
+      <div>
+        Pour <q>éteindre</q> une source de tension, on la remplace par un fil (\(e=0\)).<br />
+        Pour <q>éteindre</q> une source de courant, on la remplace par un interupteur ouvert
+        (\(i_0=0\)).   
+      </div>
+      
+      <h3>Théorème de Millman</h3>
+      
+      <div>
+        Considérons un nœud \(N\) auquel sont reliés \(n\) conducteurs ohmiques de résistances
+        \(R_k\) (\(k = 1...n\)). Le nœud \(N\) est de potientiel \(V_N\) et on note \(V_k\)
+        le potentiel électrique de l’autre borne de \(R_k\).<br />
+        D’après le théorème de Millman, on a&#x202f;:
+        $$
+          V_N = \frac{\sum_{k=1}^{n}{V_k/R_k}}{\sum_{k=1}^{n}{1/R_k}}
+        $$
+      </div>
+
+    </section>
+  </body>
+</html>
